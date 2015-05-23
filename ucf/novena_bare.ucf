@@ -1,0 +1,9 @@
+NET "led" LOC = L1 | IOSTANDARD = LVCMOS33 | SLEW = SLOW;
+
+NET "clk_n" LOC = H1;
+NET "clk_n" IOSTANDARD = LVDS_33;
+NET "clk_n" DIFF_TERM = "TRUE";
+
+NET "clk_p" LOC = H2;
+NET "clk_p" IOSTANDARD = LVDS_33;
+NET "clk_p" DIFF_TERM = "TRUE";

@@ -1,0 +1,8 @@
+*~
+*.swp
+build/
+temp/
+*.lnk
+*.bit
+*.bak
+_xmsgs

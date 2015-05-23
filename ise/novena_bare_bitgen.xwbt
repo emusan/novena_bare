@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Tom\projs\novena-related\novena_bare\ise\novena_bare.ncd
+OUTFILE=C:\Users\Tom\projs\novena-related\novena_bare\ise\novena_bare.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=C:\Users\Tom\projs\novena-related\novena_bare\ise
+LICENSE=WebPack
+USER_INFO=210823444_0_0_054
