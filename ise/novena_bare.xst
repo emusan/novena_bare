@@ -1,5 +1,5 @@
 run
--ifn novena_bare.prj
+-ifn ../ise/novena_bare.prj
 -ofn novena_bare
 -ofmt NGC
 -p xc6slx45-3-csg324
