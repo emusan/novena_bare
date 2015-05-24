@@ -46,7 +46,6 @@ par:
 	-w \
 	-intstyle $(INTSTYLE) \
 	-ol high \
-	-t 1 \
 	-xe n \
 	-mt off $(PROJECT_NAME).ncd $(PROJECT_NAME).ncd $(PROJECT_NAME).pcf 
 
