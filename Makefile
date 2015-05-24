@@ -1,4 +1,4 @@
-PROJECT_NAME = novena-bare
+PROJECT_NAME = novena_bare
 PART = xc6slx45-3csg324
 #PART = xc3s250e-cp132-5
 
@@ -15,7 +15,7 @@ syn:
 	@cd $(BUILD_DIR); \
 	xst \
 	-intstyle $(INTSTYLE) \
-	-ifn "ise/$(PROJECT_NAME).xst" \
+	-ifn "../ise/$(PROJECT_NAME).xst" \
 	-ofn "$(PROJECT_NAME).syr"
 
 tran:
