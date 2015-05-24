@@ -34,7 +34,6 @@ map:
 	map \
 	-intstyle $(INTSTYLE) \
 	-p $(PART) \
-	-cm area \
 	-ir off \
 	-pr off \
 	-c 100 \
