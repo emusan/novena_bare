@@ -15,7 +15,7 @@ syn:
 	@cd $(BUILD_DIR); \
 	xst \
 	-intstyle $(INTSTYLE) \
-	-ifn "../ise/$(PROJECT_NAME).xst" \
+	-ifn "ise/$(PROJECT_NAME).xst" \
 	-ofn "$(PROJECT_NAME).syr"
 
 tran:
