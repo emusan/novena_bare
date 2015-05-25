@@ -1,5 +1,6 @@
 PROJECT_NAME = novena_bare
-PART = xc6slx45-3csg324
+#PART = xc6slx45-3csg324
+PART = xc6slx45-csg324-3
 #PART = xc3s250e-cp132-5
 
 # Set the amount of output that will be displayed (xflow or silent generally)
@@ -34,9 +35,18 @@ map:
 	map \
 	-intstyle $(INTSTYLE) \
 	-p $(PART) \
+	-w -logic_opt off \
+	-ol high \
+	-t 1 \
+	-xt 0 \
+	-register_duplication off \
+	-r 4 \
+	-global_opt off \
+	-mt off \
 	-ir off \
 	-pr off \
-	-c 100 \
+	-lc off \
+	-power off \
 	-o $(PROJECT_NAME).ncd $(PROJECT_NAME).ngd $(PROJECT_NAME).pcf 
 
 par:
@@ -46,7 +56,6 @@ par:
 	-w \
 	-intstyle $(INTSTYLE) \
 	-ol high \
-	-xe n \
 	-mt off $(PROJECT_NAME).ncd $(PROJECT_NAME).ncd $(PROJECT_NAME).pcf 
 
 trce:
@@ -55,7 +64,7 @@ trce:
 	trce \
 	-intstyle $(INTSTYLE) \
 	-v 3 \
-	-s 5 \
+	-s 3 \
 	-n 3 \
 	-fastpaths \
 	-xml $(PROJECT_NAME).twx $(PROJECT_NAME).ncd \
