@@ -1,54 +1,41 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
 library UNISIM;
-use UNISIM.VComponents.all;
+use UNISIM.VComponents.ALL;
 
 entity novena_bare is
-	Port ( clk_n : in  STD_LOGIC;
-	       clk_p : in  STD_LOGIC;
-	       ledA : out  STD_LOGIC;
-	       ledB : out  STD_LOGIC;
-	       ledC : out  STD_LOGIC;
-	       ledD : out  STD_LOGIC);
+	generic(
+		clk_freq: integer := 50_000_000
+	);
+	port(
+		led: out std_logic;
+		clk_n: in std_logic;
+		clk_p: in std_logic
+	);
 end novena_bare;
 
 architecture Behavioral of novena_bare is
-	signal clk: STD_LOGIC;
-	signal counter: STD_LOGIC_VECTOR(31 downto 0) :=(others => '0');
-begin
-	IBUFGDS_inst : IBUFGDS
-                generic map (
-                                    IBUF_LOW_PWR => TRUE,
-                                    IOSTANDARD => "DEFAULT"
-                            )
 
-                port map (
-                                 O => clk, -- clock buffer output
-                                 I => clk_p,       -- diff_p clock buffer input
-                                 IB => clk_n      -- diff_n clock buffer input
-                         );
+	signal count_1s: integer range 0 to clk_freq := 0;
+	signal enable_led: std_logic := '0';
+	signal clk: std_logic;
+
+begin
+	IBUFGDS_inst: IBUFGDS port map ( O => clk, I => clk_p, IB => clk_n );
 
 	process(clk)
 	begin
-		if rising_edge(clk) then
-			if counter(31) = '1' then
-				counter <= (others => '0'); -- reset counter if bit 31 is set
-			else
-				counter <= std_logic_vector(unsigned(counter) + 1); -- increase counter if not
+		if(rising_edge(clk)) then
+			count_1s <= count_1s + 1;
+			if(count_1s = clk_freq) then
+				count_1s <= 0;
+				enable_led <= not enable_led;
 			end if;
 		end if;
 	end process;
-	
 
-        ledA <= counter(25);
-	ledB <= NOT counter(26);
-	ledC <= counter(27);
-	ledD <= NOT counter(28);
+	led <= enable_led;
+
 end Behavioral;

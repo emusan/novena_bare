@@ -1,27 +1,11 @@
-#the led pins
+NET "led" LOC = T11;
+NET "led" IOSTANDARD = LVCMOS33;
+NET "led" SLEW = SLOW;
 
-NET "ledA" LOC = L1;
-NET "ledA" IOSTANDARD = LVCMOS33;
-NET "ledA" SLEW = SLOW;
-    
-NET "ledB" LOC = L7;
-NET "ledB" IOSTANDARD = LVCMOS33;
-NET "ledB" SLEW = SLOW;
-    
-NET "ledC" LOC = T11;
-NET "ledC" IOSTANDARD = LVCMOS33;
-NET "ledC" SLEW = SLOW;
+NET "clk_n" LOC = H1;
+NET "clk_n" IOSTANDARD = LVDS_33;
+NET "clk_n" DIFF_TERM = "TRUE";
 
-NET "ledD" LOC = R11;
-NET "ledD" IOSTANDARD = LVCMOS33;
-NET "ledD" SLEW = SLOW;
-
-#the differential clock signal is provided at pin H1 and H2
-NET "CLK_N" LOC = H1;                                   
-NET "CLK_N" IOSTANDARD = LVDS_33;                   
-NET "CLK_N" DIFF_TERM = "TRUE";                     
-NET "CLK_P" LOC = H2;                               
-NET "CLK_P" IOSTANDARD = LVDS_33;            
-NET "CLK_P" DIFF_TERM = "TRUE";
-          
-NET "CLK_P" PERIOD = 20 ns; #the clock runs with 50Mhz (This should tell the compiler to optimize for clock usage and helps the simulator to know which input should be used as clock)
+NET "clk_p" LOC = H2;
+NET "clk_p" IOSTANDARD = LVDS_33;
+NET "clk_p" DIFF_TERM = "TRUE";
