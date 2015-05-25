@@ -1,4 +1,6 @@
-NET "led" LOC = L1 | IOSTANDARD = LVCMOS33 | SLEW = SLOW;
+NET "led" LOC = T11;
+NET "led" IOSTANDARD = LVCMOS33;
+NET "led" SLEW = SLOW;
 
 NET "clk_n" LOC = H1;
 NET "clk_n" IOSTANDARD = LVDS_33;
