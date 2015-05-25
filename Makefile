@@ -75,7 +75,6 @@ bit:
 	@cd $(BUILD_DIR); \
 	bitgen \
 	-intstyle $(INTSTYLE) \
-	-g UnusedPin:Pullnone \
 	-f ../ise/$(PROJECT_NAME).ut $(PROJECT_NAME).ncd 
 	@cp $(BUILD_DIR)/$(PROJECT_NAME).bit .
 
