@@ -23,8 +23,7 @@ architecture Behavioral of novena_bare is
 	signal clk: std_logic;
 
 begin
-	IBUFGDS_inst: IBUFGDS generic map(IBUF_LOW_PWR => TRUE,IOSTANDARD => "DEFAULT")
-	                      port map ( O => clk, I => clk_p, IB => clk_n );
+	IBUFGDS_inst: IBUFGDS port map ( O => clk, I => clk_p, IB => clk_n );
 
 	process(clk)
 	begin
